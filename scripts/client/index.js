@@ -6,4 +6,6 @@ router.get("/client/info", async (req, res)=>{
     }));
 });
 
-module.exports router;
+module.exports = {
+    router: router
+};

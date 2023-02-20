@@ -24,14 +24,18 @@ router.use((req, res, next) => {
     next();
 });
 
+async function middleware(req, res, next){
+
+    next();
+}
 app.set("title", "GATE");
 app.set("view engine", "ejs");
 
 app.use(express.json());
 
 app.use(router);
-app.use("/product", product_router);
-app.use("/client", client_router);
+app.use("/product", middleware, product_router);
+app.use("/client", middleware, client_router);
 
 const my = { name: "app", port: 3000, host: "127.0.0.1" };
 var server = app.listen(my.port, my.host, function () {
