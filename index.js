@@ -7,9 +7,12 @@ var express = require("express");
 var axios = require("axios");
 var fs = require("fs");
 
+var product_router = require("./script/product");
+var client_router = require("./script/client");
+
 var app = express();
-var router = express.Router();
 const fsPromises = fs.promises;
+var router = express.Router();
 
 // middleware
 router.use((req, res, next) => {
@@ -21,16 +24,14 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get("/greeting", async (req, res)=>{
-    res.send(JSON.stringify({message: `${req.body.username}` }))
-});
-
 app.set("title", "GATE");
 app.set("view engine", "ejs");
 
 app.use(express.json());
 
 app.use(router);
+app.use(product_router);
+app.use(client_router);
 
 const my = { name: "app", port: 3000, host: "127.0.0.1" };
 var server = app.listen(my.port, my.host, function () {
