@@ -1,6 +1,11 @@
+/*
 import express from "express";
 import axios from "axios";
 import fs, { rmSync } from "fs";
+*/
+var express = require("express");
+var axios = require("axios");
+var fs = require("fs");
 
 var app = express();
 var router = express.Router();
