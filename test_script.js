@@ -1,3 +1,3 @@
-var message = require("./scripts/utility");
+var message = require("./scripts/utility").message;
 
 console.log(message);
