@@ -7,8 +7,8 @@ var express = require("express");
 var axios = require("axios");
 var fs = require("fs");
 
-var product_router = require("./scripts/product");
-var client_router = require("./scripts/client");
+var { product_router } = require("./scripts/product");
+var { client_router } = require("./scripts/client");
 
 var app = express();
 const fsPromises = fs.promises;
